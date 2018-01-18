@@ -1,0 +1,32 @@
+{
+  "name": "rxjs-training",
+  "version": "1.0.0",
+  "description": "每天学一天rxjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pallyoung/rxjs-training.git"
+  },
+  "keywords": [
+    "rxjx",
+    "trainging"
+  ],
+  "author": "Spencer Ye",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/pallyoung/rxjs-training/issues"
+  },
+  "homepage": "https://github.com/pallyoung/rxjs-training#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-server": "^0.1.0",
+    "jest": "^22.1.2",
+    "webpack": "^3.10.0"
+  },
+  "dependencies": {
+    "rxjs": "^5.5.6"
+  }
+}
