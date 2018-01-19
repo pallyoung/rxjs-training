@@ -40,4 +40,5 @@ done
 在上面的demo中我们调用Rx.Observable.create来出生一个Observable，之后通过subscribe给这个Observable传递一个Observer，来观察Observable的变动。从表现形式上看，有点类似一个基于观察者模式的事件模型，即：产生一个事件发送模型，模型变动的时候发送事件给监听者，接着监听者响应。
 与观察者模型不同的一点是，所有的事件在next被调用的时候被没有立即发送，而是等到有具体的Observer subscribe的时候才开始发送时间。现在我们先记住这一点，具体的再后面具体深入。
 官方对于Observable的描述是：可观察对象。是构成RxJS的最基本的要素。而Observer是具体的数据消费者对象，用来接受具体的Observable发送的通知。
-完整的demo
+## 完整的demo
+[第一天](https://github.com/pallyoung/rxjs-training/tree/master/code/day1)
