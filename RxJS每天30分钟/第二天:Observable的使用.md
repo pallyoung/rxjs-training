@@ -37,7 +37,52 @@ Rx.Observable.interval(1000).
 );
 
 ```
-
+## Observables的简单应用场景
+假设你现在要向服务端发出三个请求（我们暂时不要纠结为什么要发出三个请求，这里的三个请求可以指代任何的三次异步操作。
+），这三个请求数据拿到之后我们才能继续下一步操作，正常情况下我们会这样写：
+```
+var count = 0;
+$.post('/api1',()=>{
+    count++;
+    if(count===3){
+        console.log('complete';)
+    }
+})
+$.post('/api2',()=>{
+    count++;
+    if(count===3){
+        console.log('complete';)
+    }
+})
+$.post('/api3',()=>{
+    count++;
+    if(count===3){
+        console.log('complete';)
+    }
+})
+```
+我们每次都需要手动去检查请求有没有完成。
+如果我们RxJS来做的话，事情将会简单很多。
+```
+Rx.Observable.create((obsever)=>{
+    let i = 0;
+    $.post('/api1',()=>{
+        obsever.next(i++);
+    })
+    $.post('/api2',()=>{
+        obsever.next(i++);
+    })
+    $.post('/api3',()=>{
+        obsever.next(i++);
+    })
+}).subcribe((v)=>{
+    if(v===3){
+        console.log('请求全部发送成功')
+    }
+})
+```
+从代码上看，RxJS并没有多少优势，这里只是展示了RxJS一个最主要是应用场景：处理异步事件。
+如果你的项目中有大量的异步事件或者串行的业务场景，并且觉得现有的设计模式用起来比较困难，你获取可以考虑用RxJS去优化你的代码。
 ## 完整的demo
 [第二天](https://github.com/pallyoung/rxjs-training/tree/master/code/day2)
 
